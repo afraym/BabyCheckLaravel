@@ -1,0 +1,20 @@
+<?php
+return [
+    'all_batches' => 'All Batches',
+    'create_new_batch' => 'Create New Batch',
+    'create_batch' => 'Create Batch',
+    'no_batches_found' => 'No batches found.',
+    'batch_code' => 'Batch Code',
+    'lot_number' => 'Lot Number',
+    'expiry_date' => 'Expiry Date',
+    'tests_count' => 'Number of Tests',
+    'actions' => 'Actions',
+    'view' => 'View',
+    'edit' => 'Edit',
+    'delete' => 'Delete',
+    'delete_confirmation' => 'Are you sure you want to delete this batch?',
+    'description' => 'Description',
+    'back' => 'Back',
+    'download_qr' => 'Download QR',
+    'print_qr' => 'Print QR',
+];
