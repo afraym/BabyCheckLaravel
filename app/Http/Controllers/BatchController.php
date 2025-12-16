@@ -34,9 +34,9 @@ class BatchController extends Controller
     {
         $data = $request->validate([
             'batch_code' => 'required|unique:batches,batch_code',
-            'lot_number' => 'required',
-            'expiry_date' => 'required|date',
-            'tests_count' => 'required|integer|min:1',
+            'lot_number' => 'string|nullable',
+            'expiry_date' => 'date|nullable',
+            'tests_count' => 'integer|min:1|nullable',
             'description' => 'nullable|string',
         ]);
 

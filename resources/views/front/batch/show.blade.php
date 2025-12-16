@@ -8,7 +8,7 @@
   #qrPrintWrapper { position: fixed; top:0; left:0; width:100%; text-align:center; }
 }
 </style>
-<div class="container mt-5">
+<div class="container mt-5 text-center">
     <h2>{{ $batch->batch_code }}</h2>
     <p>{{ __('admin.lot_number') }}: {{ $batch->lot_number }}</p>
     <p>{{ __('admin.expiry_date') }}: {{ $batch->expiry_date }}</p>
