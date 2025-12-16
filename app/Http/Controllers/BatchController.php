@@ -42,20 +42,16 @@ class BatchController extends Controller
 
         $batch = Batch::create($data);
 
-        $payload = json_encode([
-            'batch_code' => $batch->batch_code,
-            'lot_number' => $batch->lot_number,
-            'expiry_date' => $batch->expiry_date,
-            'hash' => hash('sha256', $batch->batch_code.$batch->lot_number.$batch->expiry_date),
-        ]);
+        // Generate verify URL with batch code as query parameter
+        $verifyUrl = url('/verify?batch_code=' . urlencode($batch->batch_code));
 
-        $png = QrCode::format('png')->size(300)->margin(2)->generate($payload);
+        $png = QrCode::format('png')->size(300)->margin(2)->generate($verifyUrl);
         $filename = 'qr_codes/batch_'.$batch->id.'_'.time().'.png';
         Storage::disk('public')->put($filename, $png);
 
         QrCodeEntry::create([
             'batch_id' => $batch->id,
-            'qr_code' => $filename, // store path only
+            'qr_code' => $filename,
             'description' => 'Authenticity QR',
         ]);
 
